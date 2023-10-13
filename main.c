@@ -17,16 +17,20 @@ int sequentialSearch(int values[], int target, int valuesLength);
 
 int main()
 {
-	// Declare required variables
+	// Declare required variables - can be edited
 	int values[5] = { 0, 5, -2, 2, 23 };
-	int target = 2, valuesLength = 5, result = -1;
+	int target = -2;
 
-	// Call the sequentialSearch function()
+	// Declare required variables - do not edit (is overwritten)
+	int valuesLength = -1, result = -1;
+
+	// Call sequentialSearch() and find valuesLength using memory
+	valuesLength = sizeof(values) / sizeof(values[0]);
 	result = sequentialSearch(values, target, valuesLength);
 
 	// Print details
 	printf("Searching array for %d...\n", target);
-	printf("%d is at the index %d (element %d).", target, result, result + 1);
+	printf("%d is at the index %d.", target, result);
 
 	// Return a code, "success"
 	return 0;
@@ -36,7 +40,7 @@ int main()
 *	Description: Traverses an array and finds a target number.
 *	Date: 10/13/2023
 *
-*	Preconditions: valuesLength is in the range [0, length of values].
+*	Preconditions: valuesLength is in the range [0, length of values], values[] is valid.
 *	Postconditions: The index of the element is returned, -1 if it's not
 *		found.
 */
